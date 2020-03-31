@@ -1,2 +1,2 @@
-# hendrikpfaff2-hotmail.com
-Ziekmeldingensysteem
+# Ziekmeldingensysteem
+GitHub Project, school.

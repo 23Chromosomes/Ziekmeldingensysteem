@@ -1,0 +1,227 @@
+::-webkit-scrollbar {
+    display:none;
+}
+
+html, body {
+	background:#121212;
+	color: white;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	overflow-x: hidden;
+	font-family: 'Roboto';
+	font-size: 22px;
+}
+
+header {
+	background: rgba(0,0,0,0.5);
+}
+
+footer {
+	background: rgba(0,0,0,0.5);
+}
+
+.FormBox{
+	position: relative;
+	background-color: rgba(0,0,0,0.5);
+	width: 100%;
+	max-width: 700px;
+	text-align: center;
+	margin: 20px auto 0;
+	border-radius: 10px;
+}
+
+.TextBoxes input{
+	list-style-type: none;
+	width: 95%;
+	padding: 6px;
+	border: 1px solid black;
+	border-radius: 4px;
+	text-align: center;
+	font-weight: bold;
+	outline: 0px;
+}
+
+.TextBoxes input:focus{
+	border: 1px solid #00c200;
+}
+
+.TextBoxes {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+
+.SubmitBtn {
+	Background-color: #00c200;
+}
+
+/* Navbar - Background */
+.Navbar {
+/* critical sizing and position styles */
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 0;
+
+/* non-critical appearance styles */
+	list-style: none;
+	background: #007628;
+}
+
+/* Navigation Menu - List items */
+.Nav-Item {
+/* non-critical appearance styles */
+	width: 200px;
+	border-top: 1px solid #111;
+	border-bottom: 1px solid #000;
+}
+
+.Nav-Item a {
+/* non-critical appearance styles */
+	display: block;
+	padding: 0.3em 1em;
+	color: white;
+	font-size: 1.2em;
+	text-decoration: none;
+	transition: color 0.2s, background 0.5s;
+}
+
+.Nav-Item a:hover {
+    color: #f5f4f4;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0) 0%, rgba(0, 191, 63, 0.65) 100%);
+}
+
+/* Site Wrapper - Everything that isn't navigation */
+.Site-Wrapper {
+/* Critical position and size styles */
+	min-height: 100%;
+	min-width: 100%;
+	position: relative;
+	top: 0;
+	bottom: 100%;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-image: url("https://i.imgur.com/nTpV9An.jpg");
+	background-color: black;
+
+	/* non-critical appearance styles */
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+/* Nav Trigger */
+.Nav-Trigger {
+/* critical styles - hide the checkbox input */
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+}
+
+Label[for="Nav-Trigger"] {
+/* critical positioning styles */
+	position: fixed;
+	left: 15px;
+	top: 10px;
+	z-index: 2;
+
+/* non-critical appearance styles (Hamburger) */
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80' width='40' height='40' fill='white'%3E%3Crect width='100' height='20' rx='8'%3E%3C/rect%3E%3Crect y='30' width='100' height='20' rx='8'%3E%3C/rect%3E%3Crect y='60' width='100' height='20' rx='8'%3E%3C/rect%3E%3C/svg%3E");
+	background-size: contain;
+}
+
+/* Change values div & Add Transitions*/
+.Nav-Trigger + Label, .Site-Wrappper {
+	transition: 0.5s;
+}
+
+.Nav-Trigger:checked + Label {
+	left: 215px;
+}
+
+.Nav-Trigger:checked ~ .Site-Wrapper {
+	left: 200px;
+	box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+	transition: left 0.5s;
+}
+
+.Nav-Trigger:not(:checked) ~ .Site-Wrapper {
+	left: 0px;
+	box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+	transition: left 0.5s;
+}
+
+/* Micro reset */
+*,*:before,*:after{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+}
+
+/*
+Set body at least 100% height.
+You can also use a combination of height: 100% in <html> and min-height: 100% in <body>.
+*/
+.Perfect-Layout {
+	min-height: 100vh;
+}
+
+/*
+Column distribution. (mobile first)
+Flex value is 1 1 auto to make the body skrinkable and extensible.
+*/
+.Perfect-Layout,
+.Perfect-Layout-Body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/*
+Content body item is made extensible too.
+*/
+.Perfect-Layout-Content {
+	flex: 1 1 auto;
+}
+
+/*
+Put the first sidebar before content.
+If you need sidebar to be before content only in big screen put those 3 next lines in @media block.
+ */
+.Perfect-Layout-Sidebar-1 {
+	order: -1;
+}
+
+/*
+For the bigger screens.
+*/
+
+@media (min-width: 768px) {
+	/*
+	 Body items are now side by side
+	 */
+	.Perfect-Layout-Body {
+		flex-direction: row;
+	}
+
+	/*
+	 Sidebars have a basic 260 width and are not really flexible anymore.
+	 */
+	.PL-Sidebar {
+		flex: 0 0 260px;
+	}
+}

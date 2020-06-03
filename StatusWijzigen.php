@@ -75,9 +75,8 @@
 
                     $query = "INSERT INTO periode(DatumZMelding, DatumBMelding, SID) VALUES" . "('$DatumZMelding', '$DatumBMelding', '$SID')";
                     $stm = $conn->prepare($query);
-                    if($stm->execute())
-                    {
-                        Header("location: PeriodeRapport.php");
+                    if($stm->execute()) {
+                        Header("location: PeriodeRapport.php?SID=".$SID."");
                     }
 
                 }

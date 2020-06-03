@@ -28,7 +28,7 @@
 		
 	<header style="text-align: center;">
 		<!-- header content -->
-		<h1>Ziekmeldings Website<h1>
+		<h1>Student Toevoegen<h1>
 	</header>
 
 		<div class="Perfect-Layout-Body">

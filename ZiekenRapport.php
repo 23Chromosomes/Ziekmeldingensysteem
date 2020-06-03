@@ -45,7 +45,7 @@
                 $conn = new PDO ("mysql:host=".$host.";dbname=".$dbname.";",$username, $password);
 
                 #Tabel Studenten met Status
-                echo "<table style='border: solid 2px white; background-color: rgba(0,0,0,0.5);position: relative;top: 10%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);margin-top: 53px;'>";
+                echo "<table style='border: solid 2px white; background-color: rgba(0,0,0,0.5);position: relative;top: 10%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);'>";
                 echo "<tr><th>Naam</th><th>Achter Naam</th><th>Leeftijd</th><th>Klas</th><th>Status</th></tr>";
 
                 try {
@@ -59,11 +59,11 @@
                     foreach($res as $rij)
                     {
                         #Lijst Tabel
-                        echo "<tr><td style='width: 175px; border: solid 1px white; background-color: rgba(0,0,0,0.5);'>$rij->VNaam</td>
+                        echo "<tr><td style='width: 175px; border: solid 1px white; background-color: rgba(0,0,0,0.5);'><a style='text-decoration: none; color: orange' href='PeriodeRapport.php?SID=".$rij->SID."'>$rij->VNaam</a></td>
                                 <td style='width: 175px; border: solid 1px white; background-color: rgba(0,0,0,0.5);'>$rij->ANaam</td>
                                 <td style='width: 175px; border: solid 1px white; background-color: rgba(0,0,0,0.5);'>$rij->Leeftijd</td>
                                 <td style='width: 175px; border: solid 1px white; background-color: rgba(0,0,0,0.5);'>$rij->Klas</td>
-                                <td style='width: 175px; border: solid 1px white; background-color: rgba(0,0,0,0.5);'><a style='text-decoration: none; color: orange' href='StatusWijzigen.php?SID=".$rij->SID."'>$rij->StatusZB</a></td></tr>";
+                                <td style='width: 175px; border: solid 1px white; background-color: rgba(0,0,0,0.5);'>$rij->StatusZB</td></tr>";
                     }
                 }
                 catch(PDOException $e) {

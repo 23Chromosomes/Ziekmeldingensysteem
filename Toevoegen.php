@@ -17,7 +17,7 @@
 	<li class="Nav-Item"><a href="ZiekmeldenHome.php">Home</a></li>
     <li class="Nav-Item"><a href="Toevoegen.php">Toevoegen</a></li>
     <li class="Nav-Item"><a href="Ziekmelden.php">Ziekmelden</a></li>
-    <li class="Nav-Item"><a href="Overzicht.php">Overzicht</a></li>
+    <li class="Nav-Item"><a href="ZiekenRapport.php">Overzicht</a></li>
 </ul>
 
 <input type="checkbox" id="Nav-Trigger" class="Nav-Trigger" />
@@ -55,24 +55,16 @@
 
                         $conn = new PDO ("mysql:host=".$host.";dbname=".$dbname.";",$username, $password);
 
-                        #Vliegtuigen Toevoegen
+                        #Student Toevoegen
                         if (isset($_POST["btnToevoegen"])){
 
                             $VNaam = $_POST["VNaam"];
                             $ANaam  = $_POST["ANaam"];
                             $Leeftijd = $_POST["Leeftijd"];
                             $Klas = $_POST["Klas"];
-                            $StID = 0;
-
-                            //$query = "SELECT max(StID) as maxid FROM status";
-                            //$stm = $conn->prepare($query);
-                            //if ($stm->execute()) {
-                                //$Status = $stm->fetch(PDO::FETCH_OBJ);
-                                //$StID = $Status->maxid + 1;
-                            //}
 
                             #Insert Data In Database
-                            $query = "INSERT INTO studenten(VNaam, ANaam,  Leeftijd, Klas) VALUES". "('$VNaam', '$ANaam', '$Leeftijd', '$Klas')";
+                            $query = "INSERT INTO studenten(VNaam, ANaam, Leeftijd, Klas) VALUES" . "('$VNaam', '$ANaam', '$Leeftijd', '$Klas')";
                             $stm = $conn->prepare($query);
                             if($stm->execute()){
                                 //Verstuurt je terug naar pagina, geen dubbel toevoeging pagina refresh

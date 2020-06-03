@@ -31,7 +31,7 @@ footer {
 	border-radius: 10px;
 }
 
-.TextBoxes input{
+.TextBoxes input,select{
 	list-style-type: none;
 	width: 95%;
 	padding: 6px;
@@ -55,6 +55,10 @@ footer {
 
 .SubmitBtn {
 	Background-color: #00c200;
+}
+
+.BackBtn {
+	Background-color: #007300;
 }
 
 /* Navbar - Background */

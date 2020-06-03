@@ -33,10 +33,43 @@
 
 		<div class="Perfect-Layout-Body">
 
-			<section class="Perfect-Layout-Content">
+			<section class="Perfect-Layout-Content" style="text-align: center">
 				<!-- Main page content -->
-				<h1 style="padding: 5px;">Website om mensen ziek te melden.<h1>
-				<p style="padding: 5px;">Gebruik het navigatie menu dat links komt als je op het Hamburger icoon drukt.</p>
+                <?php
+                #database connectie
+                $host = "localhost";
+                $dbname = "ziekmeldingen";
+                $username = "root";
+                $password = "";
+
+                $conn = new PDO ("mysql:host=".$host.";dbname=".$dbname.";",$username, $password);
+
+                $SID = $_GET['SID'];
+
+                #Tabel Studenten met periodes
+                echo "<table style='border: solid 2px white; background-color: rgba(0,0,0,0.5);position: relative;left: 50%;transform: translate(-50%);margin-top: 53px;'>";
+                echo "<tr><th>Datum Begin</th><th>Datum Eind</th></tr>";
+
+                try {
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    $query = "SELECT * FROM periode WHERE SID = '$SID' ORDER BY DatumBMelding DESC";
+                    $stm = $conn->prepare($query);
+                    $stm->execute();
+
+                    $res = $stm->fetchAll(PDO::FETCH_OBJ);
+                    foreach($res as $rij)
+                    {
+                        #Lijst Tabel
+                        echo "<tr><td style='width: 175px; border: solid 1px white; background-color: rgba(0,0,0,0.5);'>$rij->DatumZMelding</td>
+                                <td style='width: 175px; border: solid 1px white; background-color: rgba(0,0,0,0.5);'>$rij->DatumBMelding</td></tr>";
+                    }
+                }
+                catch(PDOException $e) {
+                    echo "Foutmelding: " . $e->getMessage();
+                }
+                echo "</table>";
+                ?>
 			</section>
 
 			<!-- Sidebars website if you need it
